@@ -1,11 +1,16 @@
 package javaschool.app;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Record {
     private static int count = 0;
     private int id;
     private String name;
-    private String phone;
-    private String email;
+    private final List<String> phone = new ArrayList<>();
+    private String address;
+    private String age;
 
     public Record() {
         count++;
@@ -24,24 +29,33 @@ public class Record {
         this.name = name;
     }
 
-    public String getPhone() {
+    public List<String> getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void addPhones(String... phones) {
+        this.phone.addAll(Arrays.asList(phones));
     }
 
-    public String getEmail() {
-        return email;
+
+    public String getAddress() {
+        return address;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
     }
 
     @Override
     public String toString() {
-        return id + " " + name + " " + phone;
+        return id + " " + name + " " + phone + " " + address + " " + age;
     }
 }
